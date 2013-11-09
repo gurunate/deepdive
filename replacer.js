@@ -1,15 +1,24 @@
-// dependecy library module
+//Export a full object
+/*module.exports = {
+    replace: function(str) {
+        return str.replace("one", "two");    
+    }
+}*/
+
+//Export as function
+module.exports = function(str) {
+    return str.replace("one", "two");    
+}
+
+//Export a class
 /*
-function replace(str) {
-    return str.replace("one","two");
+function MyClass() {
+    this.doit = function() {
+        console.log("doing it");
+    }
 }
+module.exports = MyClass;*/
 
-//console.log(replace("this is the one."));
-*/
-
-module.exports = {
-   replace: function(str) {
-       return str.replace("one","two");
-   }
-}
-
+//Export individual properties
+/*exports.replace = function(str) {
+    return str.replace("one", "two");    
