@@ -1,0 +1,29 @@
+@shadow: 0px 0px 5px 5px black;
+@core-color: #00ff00;
+
+.myShadow(@x: 0px, @y: 0px) {
+    box-shadow: @x @y 5px 5px black;
+}
+
+body {
+    background-color:  desaturate(@core-color, 50%) ;
+    box-shadow: @shadow;
+    a {
+        .myShadow(10px);
+        font-size: 12 + 3em;
+    }
+
+    div.girls {
+        &:before {
+            color: orange;
+        }
+
+        div.hotones {
+            color: red;
+        }
+
+        div.notreallygirls {
+            color: pink;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+doctype 5
+html(lang="en")
+    head
+        title JadeDemo
+    body
+        div#myThing.myClass
+            ul
+            - for peep in people
+                li.
+                    Test: #{peep.name}

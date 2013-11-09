@@ -1,0 +1,20 @@
+div.fancy {
+  color: purple;
+}
+body {
+  background-color: #40bf40;
+  box-shadow: 0px 0px 5px 5px #000000;
+}
+body a {
+  box-shadow: 10px 0px 5px 5px #000000;
+  font-size: 15em;
+}
+body div.girls:before {
+  color: orange;
+}
+body div.girls div.hotones {
+  color: red;
+}
+body div.girls div.notreallygirls {
+  color: pink;
+}

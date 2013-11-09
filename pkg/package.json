@@ -1,0 +1,15 @@
+{
+  "name": "tester",
+  "version": "0.0.1",
+  "description": "This is a test Package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ross Gerbasi",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "colors": "~0.6.2",
+    "less": "~1.5.0"
+  }
+}
