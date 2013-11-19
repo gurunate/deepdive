@@ -9,9 +9,6 @@ require.config({
 		domReady : 'libs/require/domReady',
 		text : 'libs/require/text',
 		css : 'libs/require/css'
-	},
-	shim : {
-		// 'can' : ['jquery'],
 	}
 });
 
