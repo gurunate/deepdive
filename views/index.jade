@@ -4,8 +4,9 @@ block content
   script(type='text/javascript', src='js/libs/require.js', data-main='js/main.js')
   h1= title
   div.chat(ng-app="chatApp", ng-controller="chatCtrl")
-    h1 {{greeting}}, {{name}}!
     ul
       li(ng-repeat="m in messages")
         strong {{m.sender}} 
         {{m.msg}}
+    form(ng-submit="chat(msg)")
+      input(ng-model="msg")
