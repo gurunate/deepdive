@@ -9,4 +9,5 @@ block content
         strong {{m.sender}} 
         {{m.msg}}
     form(ng-submit="chat(msg)")
-      input(ng-model="msg")
+      input(type="text", name="msg", ng-model="msg", init-focus)
+    button(ng-click="respond()") Respond

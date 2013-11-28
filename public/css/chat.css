@@ -1,5 +1,5 @@
 .chat {
-  border: 1px solid #ccc;
+  border: 1px solid #c00;
   border-radius: 10px;
   width: 300px;
   height: 400px;
@@ -10,12 +10,12 @@
   padding: 0;
   height: 370px;
   overflow: auto;
-  border-bottom: 3px solid #333;
+  border-bottom: 3px solid #300;
 }
 .chat ul li {
   display: block;
   list-style-type: none;
-  border-bottom: 2px solid #666;
+  border-bottom: 2px solid #600;
   margin: 5px;
   padding: 3px;
 }
