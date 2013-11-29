@@ -1,7 +1,7 @@
 /**
  * @author Cat in the Hat Johnson
  */
- define(['angular', 'domReady!', 'css!/css/chat.css'], function() {
+ define(['jquery', 'angular', 'domReady!', 'css!/css/chat.css'], function($) {
  	var chatApp = angular.module('chatApp', []).directive('initFocus', function() {
  		return function(scope, el, attr) {
  			el[0].focus();
@@ -9,7 +9,6 @@
  	});
 
  	chatApp.controller('chatCtrl', function ($scope) {
-
  		$scope.messages = [
  		{
  			sender : 'Sam I am',
@@ -28,6 +27,12 @@
  			msg : 'Same to you.'
  		}
  		];
+
+		$scope.$watch('messages', function() { 
+			setTimeout(function(){
+				$('.chat ul').scrollTop($('.chat ul')[0].scrollHeight);
+			}, 10);
+		}, true);
 
  		$scope.chat = function(msg) {
  			$scope.messages.push({
