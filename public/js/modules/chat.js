@@ -10,7 +10,7 @@
  		};
  	});
 
- 	chatApp.controller('chatCtrl', function ($scope) {
+ 	chatApp.controller('chatCtrl', function ($scope, $timeout) {
  		$scope.messages = [];
 
  		$scope.$watch('messages', function() { 
@@ -36,7 +36,9 @@
 
 		// listen chat responses
 	 	socket.on('chat', function (data) {
-	 		$scope.messages.push(data);
+	 		$timeout(function() {
+		 		$scope.messages.push(data);
+	 		}, 10);
 	 	});
  	});
  });

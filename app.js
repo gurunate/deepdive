@@ -40,4 +40,9 @@ app.get('/chat', function(){
 	return 'chatting';
 });
 
+// io.disable('heartbeats');
+
+// io.set('heartbeat timeout', 0);
+io.set('heartbeat interval', 100);
+
 io.sockets.on('connection', socket);
