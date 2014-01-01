@@ -15,15 +15,15 @@ var greetings = [
 ];
 
 io.sockets.on('connection', function (socket) {
-	socket.emit('chat', {
-		sender : 'P.D. Eastman',
-		msg : greetings[Math.floor(Math.random() * greetings.length)]
+	socket.emit('chat:init', {
+		sender : "socket-server",
+		msg : "Welcome to Deep Dive Chat"
 	});
 
 	socket.on('chat', function (data) {
 		console.log(data);
 		socket.emit('chat', {
-			sender : 'P.D. Eastman',
+			sender : 'Hal.io',
 			msg : greetings[Math.floor(Math.random() * greetings.length)]
 		});
 	});

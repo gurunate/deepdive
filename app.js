@@ -3,15 +3,19 @@
  * Module dependencies.
  */
 
-var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
-var http = require('http');
-var path = require('path');
-var nib = require('nib');
-
-var app = express();
-
+var express = require('express'),
+	routes = require('./routes'),
+	user = require('./routes/user'),
+	app = express(),
+	http = require('http'),
+	path = require('path'),
+	nib = require('nib'),
+	server = http.createServer(app).listen(process.env.PORT || 3000, function(){
+		console.log('Express server listening on port ' + app.get('port'));
+	}),
+	socket = require('./routes/socket'),
+	io = require('socket.io').listen(server);
+	
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -32,7 +36,8 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+app.get('/chat', function(){
+	return 'chatting';
 });
+
+io.sockets.on('connection', socket);

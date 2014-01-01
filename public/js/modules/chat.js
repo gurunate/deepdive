@@ -2,7 +2,7 @@
  * @author Cat in the Hat Johnson
  */
  define(['jquery', 'angular', 'socket', 'domReady!', 'css!/css/chat.css'], function($) {
-	var socket = io.connect('http://localhost:35014');
+	var socket = io.connect();
 
  	var chatApp = angular.module('chatApp', []).directive('initFocus', function() {
  		return function(scope, el, attr) {
@@ -19,28 +19,23 @@
  			}, 10);
  		}, true);
 
+		// send chat messages
  		$scope.chat = function(msg) {
  			$scope.messages.push({
  				sender : 'me',
  				msg : msg
  			});
+ 			
 	 		socket.emit('chat', {
  				sender : 'me',
  				msg : msg
  			});
-
+ 			
  			$scope.msg = '';
  		};
 
- 		$scope.respond = function() {
- 			$scope.messages.push({
- 				sender : 'That guy',
- 				msg : "Yep."
- 			});
- 		};
-
+		// listen chat responses
 	 	socket.on('chat', function (data) {
-	 		console.log(data);
 	 		$scope.messages.push(data);
 	 	});
  	});

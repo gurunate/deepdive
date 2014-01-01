@@ -7,7 +7,7 @@ block content
     ul
       li(ng-repeat="m in messages")
         strong {{m.sender}} 
-        {{m.msg}}
+        span {{m.msg}}
     form(ng-submit="chat(msg)")
       input(type="text", name="msg", ng-model="msg", init-focus)
-    button(ng-click="respond()") Respond
+      input(type="submit", value="Send")
