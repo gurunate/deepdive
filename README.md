@@ -1,16 +1,15 @@
-Deep Dive: MEAN Chat
+Chicago JavaScript Deep Dive - Solo Dive: Chat
 ========
 
-Chicago JavaScript Deep Dive - Solo Dive: Chat
-
-This is a [MEAN](http://mean.io/ "MEAN") stack chat application.
+A [MEAN](http://mean.io/ "MEAN") stack chat application.
 
 ## Getting Started ##
 
 * Install [NodeJS](http://nodejs.org/ "node.js")
 * Clone this project
 * Run ``npm install``
-* Run ``node app.js``
+* Start server ``node app.js``
+* Browse to ``http://localhost:3000``
 
 ## Dependencies ##
 
