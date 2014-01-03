@@ -14,24 +14,26 @@
  		$scope.messages = [];
 
  		$scope.$watch('messages', function() { 
- 			setTimeout(function(){
+ 			$timeout(function(){
  				$('.chat ul').scrollTop($('.chat ul')[0].scrollHeight);
  			}, 10);
  		}, true);
 
 		// send chat messages
  		$scope.chat = function(msg) {
- 			$scope.messages.push({
- 				sender : 'me',
- 				msg : msg
- 			});
- 			
-	 		socket.emit('chat', {
- 				sender : 'me',
- 				msg : msg
- 			});
- 			
- 			$scope.msg = '';
+ 			if (msg) {
+	 			$scope.messages.push({
+	 				sender : 'me',
+	 				msg : msg
+	 			});
+	 			
+		 		socket.emit('chat', {
+	 				sender : 'me',
+	 				msg : msg
+	 			});
+	 			
+	 			$scope.msg = '';
+ 			}
  		};
 
 		// listen chat responses

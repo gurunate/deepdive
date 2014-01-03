@@ -40,9 +40,10 @@ app.get('/chat', function(){
 	return 'chatting';
 });
 
-// io.disable('heartbeats');
-
 // io.set('heartbeat timeout', 0);
 io.set('heartbeat interval', 100);
+//io.set('log', 0);	// turn off debug message
 
 io.sockets.on('connection', socket);
+
+// io.disable('heartbeats');
