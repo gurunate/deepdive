@@ -11,3 +11,4 @@ This is a [MEAN](http://mean.io/ "MEAN") stack chat application.
 * [Express](http://expressjs.com/ "Express")
 * [Angular](http://angularjs.org/ "Angular")
 * [NodeJS](http://nodejs.org/ "node.js")
+* [Socket.IO](http://socket.io/ "socket.io")
