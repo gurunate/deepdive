@@ -1,4 +1,4 @@
-console.log('socket.js loaded');
+var MongoClient = require('mongodb').MongoClient;
 
 module.exports = function (socket) {
 	var greetings = [
@@ -17,9 +17,30 @@ module.exports = function (socket) {
 	];
 
 	socket.on('chat', function (data) {
-		socket.emit('chat', {
-			sender : 'Hal.io',
-			msg : greetings[Math.floor(Math.random() * greetings.length)]
-		});
+		// broadcast new msg to all users
+		socket.broadcast.emit('chat', data);
+		
+		// assemble response
+		// var msg = {
+			// // recipient : 'nate',
+			// sender : 'Hal.io',
+			// msg : greetings[Math.floor(Math.random() * greetings.length)],
+			// // created : new Date().getTime()
+		// };
+// 		
+		// // response
+		// socket.emit('chat', msg);
+		
+		// store msg to disk
+		// MongoClient.connect('mongodb://localhost:27017/chat', function(err, db) {
+			// if (err)
+				// throw err;
+// 			
+			// db.collection('messages').insert(msg, {
+				// safe : true
+			// }, function(err, records) {
+				// console.log("Record added as " + records[0]._id);
+			// });
+		// });
 	});
 };

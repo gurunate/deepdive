@@ -1,7 +1,7 @@
-Chicago JavaScript Deep Dive - Solo Dive: Chat
+Solo Dive: Chat
 ========
 
-A [MEAN](http://mean.io/ "MEAN") stack chat application.
+A [MEAN](http://mean.io/ "MEAN") stack chat application solo dive as part of the Chicago JavaScript Deep Dive.
 
 ## Getting Started ##
 

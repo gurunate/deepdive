@@ -1,8 +1,10 @@
 /**
- * @author Cat in the Hat Johnson
+ * @author Nate Johnson
  */
  define(['jquery', 'angular', 'socket', 'domReady!', 'css!/css/chat.css'], function($) {
 	var socket = io.connect();
+	var now = new Date();
+	var sender = 'Guest' + now.getTime();
 
  	var chatApp = angular.module('chatApp', []).directive('initFocus', function() {
  		return function(scope, el, attr) {
@@ -20,18 +22,16 @@
  		}, true);
 
 		// send chat messages
- 		$scope.chat = function(msg) {
- 			if (msg) {
-	 			$scope.messages.push({
-	 				sender : 'me',
-	 				msg : msg
-	 			});
+ 		$scope.chat = function(txt) {
+ 			if (txt) {
+ 				
+ 				var msg = {
+	 				sender : sender,
+	 				msg : txt
+	 			};
 	 			
-		 		socket.emit('chat', {
-	 				sender : 'me',
-	 				msg : msg
-	 			});
-	 			
+	 			$scope.messages.push(msg);
+		 		socket.emit('chat', msg);
 	 			$scope.msg = '';
  			}
  		};
