@@ -2,11 +2,12 @@
  * @author Nate Johnson
  */
  define(['jquery', 'angular', 'socket', 'domReady!', 'css!/css/chat.css'], function($) {
+ 	
 	var socket = io.connect();
 	var now = new Date();
 	var sender = 'Guest' + now.getTime();
 
- 	var chatApp = angular.module('chatApp', []).directive('initFocus', function() {
+ 	var chatApp = angular.module('chatApp', ['ngRoute']).directive('initFocus', function() {
  		return function(scope, el, attr) {
  			el[0].focus();
  		};
